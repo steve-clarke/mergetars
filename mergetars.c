@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     // Checks that the inputs given are of a valid count (greater than 3)
     if (argc < 3)
     {
-        fprintf(stderr, "Usage: %s input_tarfile1 [input_tarfile2 ... ] output_tarfile\n",
+        fprintf(stderr, "Usage: %s input_archive1.tar [input_archive2.tar ... ] output_file.tar\n",
                argv[0]);
         exit(EXIT_FAILURE);
     }
