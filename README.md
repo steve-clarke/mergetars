@@ -15,7 +15,7 @@ mergetars input_archive1.tar [input_archive2.tar ... ] output_file.tar
 You can supply as many archive files as necessary, as long as you specify a novel output tarfile name as the final argument.
 
 ## About
-Mergetars was originally authored under CITS2002, the University of Western Australia's second-year systems programming unit run by Dr. Chris McDonald.
+Mergetars was originally authored under CITS2002, the University of Western Australia's second-year systems programming unit.
 
 ## Authors
 
