@@ -1,5 +1,6 @@
 *.tar
 *.tar.gz
+*.tgz
 *.o
 .DS_Store
 mergetars

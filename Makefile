@@ -1,16 +1,15 @@
-PROJECT =  mergetars
-HEADERS =  $(PROJECT).h
-OBJ     =  mergetars.o dir_utilities.o sort.o print.o populators.o
+PROJECT	= mergetars
+OBJ	= mergetars.o utilities.o tars.o archives.o files.o directories.o
 
-C99     =  cc -std=c99
-CFLAGS  =  -Wall -pedantic -Werror
+C99	= cc -std=c99
+CFLAGS	= -Wall -Werror -pedantic
 
-$(PROJECT) : $(OBJ) 
-	$(C99) $(CFLAGS) -o $(PROJECT) \
-		$(OBJ)
+$(PROJECT) : $(OBJ)
+	$(C99) $(CFLAGS) -o $(PROJECT) $(OBJ)
 
-%.o : %.c $(HEADERS)
+
+%.o : %.c mergetars.h
 	$(C99) $(CFLAGS) -c $<
 
-clean: 
-	rm -f $(PROJECT) $(OBJ)
+clean:
+	rm -f $(PROJECT) *.o *.tar *.tgz
