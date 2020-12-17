@@ -54,7 +54,35 @@ void sort(struct stat *duplicate, FILES *original, int itemn)
     }
 }
 
+extern int delete_item(const char *path, const struct stat *path_stat, int item_type, struct FTW *file_tree)
+{
+    switch (item_type)
+    {                 // Gets the path's type
+    case FTW_D:       // If a dir that has not been walked; skip it
+    case FTW_DP:      // If a dir that has been walked...
+        rmdir(path);  // ... remove the dir.
+        break;
+    default:          // If none of the above...
+        unlink(path); // ...'deletes' the given file.
+        break;
+    }
+    return 0;
+}
+
 void cleanup(int status)
 {
+    for (int i = 0; i < nitems; i++)
+    {
+        char *current_archive = items[i].tmpdir; 
+
+        if (current_archive != NULL)
+        {
+            if (nftw(current_archive, delete_item, nitems, FTW_DEPTH) != 0)
+            {
+                perror("nftw() Error");
+                exit(EXIT_FAILURE);
+            }
+        }
+    }
     exit(status);
 }
