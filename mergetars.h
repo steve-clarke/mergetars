@@ -46,6 +46,7 @@ extern char *make_temp_dir(void);
 extern int fork_exec(char *path, char *args[]);
 extern void sort(struct stat *statbuf, FILES *flp, int itemn);
 extern void cleanup(int status);
+extern bool check_extension(char *filename, char *ext);
 
 //  defined in archives.c
 extern ITEMS *add_item(char *input_tarfile);

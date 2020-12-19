@@ -19,10 +19,12 @@ int main(int argc, char *argv[])
         }
     }
 
+    // populate struct with appropriate files and directory structure
     merge();
 
+    // Make output file based on information from merge() call
     populate_output(argv[argc-1]);
 
+    // Perform cleanup of all tmp directories and frees memory
     cleanup(EXIT_SUCCESS);
-
 }

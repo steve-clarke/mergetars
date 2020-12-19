@@ -54,6 +54,7 @@ void sort(struct stat *duplicate, FILES *original, int itemn)
     }
 }
 
+// used by cleanup() to perform file deletion
 extern int delete_item(const char *path, const struct stat *path_stat, int item_type, struct FTW *file_tree)
 {
     switch (item_type)
@@ -69,6 +70,7 @@ extern int delete_item(const char *path, const struct stat *path_stat, int item_
     return 0;
 }
 
+// remove files from /tmp directory used during operation
 void cleanup(int status)
 {
     for (int i = 0; i < nitems; i++)
@@ -85,4 +87,28 @@ void cleanup(int status)
         }
     }
     exit(status);
+}
+
+/* 
+    The below function check_extension was included to help mergetars distinguish 
+    which compression algorithm to use based on the user's final argument.
+    However, I have since learned that GNU's tar program has featured 
+    auto-compression based on filetype by default since version 1.15.
+    I have included check_extension anyway, in case a future user wishes to add
+    functionality. It is currently not in use in the program.
+*/
+
+bool check_extension(char *filename, char *ext)
+{
+    // isolate file extension
+    char *dot = strpbrk(filename, ".");
+    printf("%s\n", dot);
+    
+    // check for edge cases
+    if(!dot || dot == filename) {
+        return false;
+    } 
+
+    // returns true if extension to first argument matches second argument.
+    return ( strcmp((dot + 1), ext ) == 0);
 }

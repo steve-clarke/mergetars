@@ -3,11 +3,13 @@
 FILES *files = NULL;
 int nfiles = 0;
 
+// Create output archive based in information from FILES struct
 void populate_output(char *outputarchive)
 {
     add_item(outputarchive);
     char *outputdir = items[nitems-1].tmpdir;
 
+    // initialise directory structure before adding files
     init_output_directories(outputdir);
 
     for (int i = 0; i < nfiles; i++)
@@ -68,6 +70,7 @@ void populate_output(char *outputarchive)
 
 }
 
+// populate FILES struct with given file; sort if necessary
 void add_file(int itemn, char *filename, struct stat *statbuf)
 {
     FILES *file;
@@ -96,6 +99,7 @@ void add_file(int itemn, char *filename, struct stat *statbuf)
     nfiles++;
 }
 
+// Traverse directory structure, add files to struct as needed
 void find_files(char *dirname, int itemn)
 {
     char path[MAXPATHLEN];

@@ -3,6 +3,7 @@
 char **directories = NULL;
 int ndirectories = 0;
 
+// save directory name and parent structure
 void add_directory(char *path)
 {
     directories = realloc(directories, (ndirectories+1) * sizeof(char *));
@@ -10,6 +11,7 @@ void add_directory(char *path)
     ndirectories++;
 }
 
+// populate output folder with directory structure
 void init_output_directories(char *outputtmp)
 {
     for(int i = 0; i < ndirectories; i++)

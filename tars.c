@@ -1,6 +1,6 @@
 #include "mergetars.h"
 
-//  accepts a tarfile and expands its contents to /tmp directory
+// accepts a tarfile and expands its contents to /tmp directory
 int expand_tarfile(char *tarfile)
 {
     ITEMS  *itm    = add_item(tarfile);
@@ -19,9 +19,10 @@ int expand_tarfile(char *tarfile)
     return status;
 }
 
+// compress given file into tar archive
 int compress_files(char *inputfiles, char *outputfile)
 {
-
+    // GNU tar will automatically detect compression algorithm based on 'outputfile' extension
     char *args[] = {
         "tar",
         "-C",
@@ -36,4 +37,3 @@ int compress_files(char *inputfiles, char *outputfile)
 
     return status;
 }
-
