@@ -86,6 +86,8 @@ void cleanup(int status)
             }
         }
     }
+    free_items_memory();
+    free_files_memory();
     exit(status);
 }
 

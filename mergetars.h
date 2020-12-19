@@ -52,10 +52,12 @@ extern bool check_extension(char *filename, char *ext);
 extern ITEMS *add_item(char *input_tarfile);
 extern ITEMS *items;
 extern int nitems;
+extern void free_items_memory(void);
 
 //  defined in files.c
 extern void find_files(char *dirname, int itemn);
 extern void add_file(int itemn, char *filename, struct stat *statbuf);
+extern void free_files_memory(void);
 extern void populate_output(char *outputarchive);
 extern void merge(void);
 

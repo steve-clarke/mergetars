@@ -99,6 +99,15 @@ void add_file(int itemn, char *filename, struct stat *statbuf)
     nfiles++;
 }
 
+void free_files_memory(void)
+{
+    for(int i = 0; i < nfiles; i++)
+    {
+        free(files[i].filename);
+    }
+    free(files);
+}
+
 // Traverse directory structure, add files to struct as needed
 void find_files(char *dirname, int itemn)
 {

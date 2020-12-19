@@ -17,3 +17,14 @@ ITEMS *add_item(char *input_tarfile)
 
     return itm;
 }
+
+// free allocated memory as part of cleanup()
+void free_items_memory(void)
+{
+    for(int i = 0; i < nitems; i++)
+    {
+        free(items[i].tmpdir);
+        free(items[i].tarfile);
+    }
+    free(items);
+}
