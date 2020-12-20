@@ -65,3 +65,6 @@ extern void merge(void);
 extern void add_directory(char *path);
 extern void init_output_directories(char *outputtmp);
 
+// defined in verbose.c
+extern bool verbosemode;
+extern void VERBOSE(bool newfuction, char *message, ...);

@@ -10,6 +10,14 @@ int main(int argc, char *argv[])
         exit(EXIT_FAILURE);
     }
 
+    // Check if -v flag is present
+    if(strcmp(argv[1], "-v") == 0)
+    {
+        verbosemode = true;
+        --argc;
+        ++argv;
+    }
+
     // Expand each .tar file into a new temp directory
     for(int i = 1; i < argc-1 ; i++)
     {

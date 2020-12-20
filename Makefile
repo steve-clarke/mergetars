@@ -1,5 +1,5 @@
 PROJECT	= mergetars
-OBJ	= mergetars.o utilities.o tars.o archives.o files.o directories.o
+OBJ	= mergetars.o utilities.o tars.o archives.o files.o directories.o verbose.o
 
 C99	= cc -std=c99
 CFLAGS	= -Wall -Werror -pedantic

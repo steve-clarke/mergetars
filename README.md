@@ -9,13 +9,17 @@ If the duplicate files have the same modification time, it will select the large
 ## Usage
 
 ```
-mergetars input_archive1.tar [input_archive2.tar ... ] output_file.tar
+mergetars [-v] input_archive1.tar [input_archive2.tar ... ] output_file.tar
 ```
 
 You can supply as many archive files as necessary, as long as you specify a novel output tarfile name as the final argument.
 
-## About
-Mergetars was originally authored under CITS2002, the University of Western Australia's second-year systems programming unit.
+### Verbosity
+
+Users can turn on verbose mode with the -v flag. 
+This will print information to stdout about the program's operation.
+
+Error messages are printed to stdout by default.
 
 ## Authors
 
